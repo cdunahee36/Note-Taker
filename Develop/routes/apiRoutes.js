@@ -1,0 +1,1 @@
+var notes = require("../db/db.json");
