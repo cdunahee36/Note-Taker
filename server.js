@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const noteJSON = require('./db.json');
-const PORT = 8080;
+const { hostname } = require('os');
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,4 +41,4 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 //Starts the server and allows you to click on it
-app.listen(PORT, () => console.log("Server listening on: http://localhost:" + PORT));
+app.listen(PORT, () => console.log("Server listening on" + PORT));
