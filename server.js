@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const noteJSON = require('./db/db.json');
+const noteJSON = require('./db.json');
 const PORT = 8080;
 const app = express();
 
@@ -13,10 +13,10 @@ app.use(express.json());
 
 //These are the html get routes that bring them to the server
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
+  res.sendFile(path.join(__dirname, './index.html'));
 });
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'));
+  res.sendFile(path.join(__dirname, './notes.html'));
 });
 
 //These are the api routes that connect and use the index.js file to render the notes onto the page
